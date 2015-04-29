@@ -1,4 +1,4 @@
-package com.np.cardwizard.model;
+package com.np.cardwizard.model.user;
 
 import javax.persistence.*;
 

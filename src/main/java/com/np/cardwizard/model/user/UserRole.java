@@ -1,4 +1,4 @@
-package com.np.cardwizard.model;
+package com.np.cardwizard.model.user;
 
 public enum UserRole {
   USER,

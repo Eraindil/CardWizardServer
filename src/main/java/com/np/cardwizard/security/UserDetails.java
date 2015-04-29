@@ -1,6 +1,6 @@
 package com.np.cardwizard.security;
 
-import com.np.cardwizard.model.UserRole;
+import com.np.cardwizard.model.user.UserRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 

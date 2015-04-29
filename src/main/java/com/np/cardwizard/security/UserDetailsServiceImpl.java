@@ -1,6 +1,6 @@
 package com.np.cardwizard.security;
 
-import com.np.cardwizard.model.User;
+import com.np.cardwizard.model.user.User;
 import com.np.cardwizard.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

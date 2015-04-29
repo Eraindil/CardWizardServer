@@ -1,6 +1,6 @@
 package com.np.cardwizard.config;
 
-import com.np.cardwizard.model.UserRole;
+import com.np.cardwizard.model.user.UserRole;
 import com.np.cardwizard.security.CustomTokenBasedRememberMeService;
 import com.np.cardwizard.security.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
