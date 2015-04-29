@@ -19,8 +19,8 @@ public class AssociatedCard implements Serializable {
   private AbstractDeck deck;
 
   @ManyToOne
-  @MapsId("cardId")
-  @JoinColumn(name = "multiverse_id", referencedColumnName = "multiverseId", nullable = false)
+  @MapsId("multiverseId")
+  @JoinColumn(name = "multiverse_id", referencedColumnName = "multiverse_id", nullable = false)
   private AbstractCard card;
 
   @Basic(optional = false)

@@ -15,8 +15,8 @@ public class AssociatedCardPK implements Serializable {
   public AssociatedCardPK() {
   }
 
-  public AssociatedCardPK(int dackId, int multiverseId) {
-    this.deckId = dackId;
+  public AssociatedCardPK(int deckId, int multiverseId) {
+    this.deckId = deckId;
     this.multiverseId = multiverseId;
   }
 

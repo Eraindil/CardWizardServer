@@ -1,6 +1,6 @@
 package com.np.cardwizard.model.card;
 
-import com.np.cardwizard.model.type.AbstractCardType;
+import com.np.cardwizard.model.type.CardType;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,7 +13,7 @@ public abstract class AbstractCard implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @Id
-  @Column(name = "multiverseId", nullable = false)
+  @Column(name = "multiverse_id", nullable = false)
   private Integer multiverseId;
 
   @OneToMany(mappedBy = "card")
@@ -21,9 +21,9 @@ public abstract class AbstractCard implements Serializable {
 
   @ManyToMany
   @JoinTable(name = "card_type_card",
-      joinColumns = @JoinColumn(name = "multiverse_id", referencedColumnName = "multiverseId", nullable = false),
+      joinColumns = @JoinColumn(name = "multiverse_id", referencedColumnName = "multiverse_id", nullable = false),
       inverseJoinColumns = @JoinColumn(name = "type_id", referencedColumnName = "id", nullable = false))
-  private List<AbstractCardType> cardTypes;
+  private List<CardType> cardTypes;
 
   @Basic
   @Column(name = "name")
@@ -49,11 +49,11 @@ public abstract class AbstractCard implements Serializable {
     this.associatedCards = associatedCards;
   }
 
-  public List<AbstractCardType> getCardTypes() {
+  public List<CardType> getCardTypes() {
     return cardTypes;
   }
 
-  public void setCardTypes(List<AbstractCardType> cardTypes) {
+  public void setCardTypes(List<CardType> cardTypes) {
     this.cardTypes = cardTypes;
   }
 

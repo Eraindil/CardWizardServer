@@ -7,4 +7,6 @@ CREATE TABLE `associate_card` (
     ON UPDATE RESTRICT
     ON DELETE CASCADE,
   CONSTRAINT `fk_associate_card_card` FOREIGN KEY (`multiverse_id`) REFERENCES `card` (`multiverse_id`)
+    ON DELETE CASCADE
+    ON UPDATE RESTRICT
 )
