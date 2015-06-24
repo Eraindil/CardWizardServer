@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "deck_card")
+@Table(name = "associate_card")
 public class AssociatedCard implements Serializable {
   private static final long serialVersionUID = 1L;
 

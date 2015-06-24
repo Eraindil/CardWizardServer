@@ -1,6 +1,9 @@
 package com.np.cardwizard.model.user;
 
+import com.np.cardwizard.model.deck.AbstractDeck;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -21,6 +24,9 @@ public class User {
   @Basic
   @Column(name = "password", nullable = false)
   private String password;
+
+  @OneToMany(mappedBy = "user")
+  private List<AbstractDeck> decks;
 
   public String getEmail() {
     return email;
@@ -52,5 +58,13 @@ public class User {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public List<AbstractDeck> getDecks() {
+    return decks;
+  }
+
+  public void setDecks(List<AbstractDeck> decks) {
+    this.decks = decks;
   }
 }

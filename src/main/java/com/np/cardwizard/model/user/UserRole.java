@@ -6,6 +6,5 @@ public enum UserRole {
 
   public String toRoleString() {
     return "ROLE_" + this.toString();
-
   }
 }

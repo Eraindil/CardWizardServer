@@ -1,6 +1,7 @@
 package com.np.cardwizard.model.deck;
 
 import com.np.cardwizard.model.card.AssociatedCard;
+import com.np.cardwizard.model.user.User;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "card")
+@Table(name = "deck")
 public abstract class AbstractDeck implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -25,8 +26,12 @@ public abstract class AbstractDeck implements Serializable {
   @Column(name = "description", nullable = true)
   private String description;
 
-  @OneToMany(mappedBy = "card")
+  @OneToMany(mappedBy = "deck")
   private List<AssociatedCard> associatedCards;
+
+  @ManyToOne
+  @JoinColumn(name = "email", referencedColumnName = "email", nullable = false)
+  private User user;
 
   public Integer getId() {
     return id;
@@ -58,5 +63,13 @@ public abstract class AbstractDeck implements Serializable {
 
   public void setAssociatedCards(List<AssociatedCard> associatedCards) {
     this.associatedCards = associatedCards;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
   }
 }
