@@ -3,6 +3,7 @@ package com.np.cardwizard.converter;
 import com.np.cardwizard.dto.BasicCardDTO;
 import com.np.cardwizard.dto.BasicDeckDTO;
 import com.np.cardwizard.model.card.AssociatedCard;
+import com.np.cardwizard.model.card.AssociatedCardPK;
 import com.np.cardwizard.model.card.BasicCard;
 import com.np.cardwizard.model.deck.BasicDeck;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,11 +40,13 @@ public class BasicDeckToDTOConverter implements BaseDTOConverter<BasicDeck, Basi
     List<AssociatedCard> associatedCards = new ArrayList<>();
     basicDeckDTO.getCards().forEach(basicCardDTO -> {
       AssociatedCard associatedCard = new AssociatedCard();
+      associatedCard.setId(new AssociatedCardPK());
       associatedCard.setNumber(basicCardDTO.getNumber());
       associatedCard.setCard(basicCardToDTOConverter.convertFromDTO(basicCardDTO));
       associatedCard.setDeck(basicDeck);
       associatedCards.add(associatedCard);
     });
+    basicDeck.setAssociatedCards(associatedCards);
     return basicDeck;
   }
 }

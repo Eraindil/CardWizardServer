@@ -4,12 +4,13 @@ import com.np.cardwizard.converter.UserToDTOConverter;
 import com.np.cardwizard.dto.UserDTO;
 import com.np.cardwizard.dto.UserRegistrationDTO;
 import com.np.cardwizard.model.user.User;
+import com.np.cardwizard.model.user.UserRole;
 import com.np.cardwizard.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/user")
+@RequestMapping("/rest/user")
 @RestController
 public class UserController {
   @Autowired
@@ -32,8 +33,10 @@ public class UserController {
       if (userRegistrationDTO.getPassword() != null
           && userRegistrationDTO.getPassword().equals(userRegistrationDTO.getPasswordConfirmed())) {
         User user = new User();
+        user.setUserName(userRegistrationDTO.getUserName());
         user.setEmail(userRegistrationDTO.getEmail());
         user.setPassword(passwordEncoder.encode(userRegistrationDTO.getPassword()));
+        user.setRole(UserRole.USER);
         userService.createUser(user);
       }
     }
